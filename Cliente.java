@@ -2,10 +2,10 @@ package Sistema_Bancario;
 
 public class Cliente {
     private String nome;
-    private int cpf;
+    private String cpf;
     private int idade;
 
-    public Cliente(String nome, int cpf, int idade) {
+    public Cliente(String nome, String cpf, int idade) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
@@ -19,11 +19,7 @@ public class Cliente {
         return nome;
     }
 
-    public void setCpf(int cpf){
-        this.cpf = cpf;
-    }
-
-    public int getCpf(){
+    public String getCpf(){
         return cpf;
     }
 
