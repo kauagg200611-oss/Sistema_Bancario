@@ -36,4 +36,9 @@ public class Conta {
         }
         saldo -= valor;
     }
+
+    public void transferir(double valor, Conta destino){
+        sacar(valor);
+        destino.depositar(valor);
+    }
 }
