@@ -30,15 +30,17 @@ public class Conta {
         saldo += valor;
     }
 
-    public void sacar(double valor){
+    public boolean sacar(double valor){
         if(valor <= 0 || valor > saldo){
-            return;
+            return false;
         }
         saldo -= valor;
+        return true;
     }
 
     public void transferir(double valor, Conta destino){
-        sacar(valor);
-        destino.depositar(valor);
+        if(sacar(valor)){
+            destino.depositar(valor);
+        }
     }
 }
