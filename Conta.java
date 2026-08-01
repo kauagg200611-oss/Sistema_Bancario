@@ -23,12 +23,10 @@ public class Conta {
         return titular;
     }
 
-    public void depositar(double deposito){
-        if(deposito <= 0){
+    public void depositar(double valor){
+        if(valor <= 0){
             return;
-        }else{
-            System.out.println("Deposito realizado com sucesso !");
         }
-        saldo += deposito;
+        saldo += valor;
     }
 }
