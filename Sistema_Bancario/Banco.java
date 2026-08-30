@@ -16,4 +16,12 @@ public class Banco {
     public int getNumeroBanco(){
         return numeroBanco;
     }
+
+    public Cliente[] getClientes() {
+        return clientes;
+    }
+
+    public Conta[] getContas() {
+        return contas;
+    }
 }
