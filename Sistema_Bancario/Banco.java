@@ -13,6 +13,16 @@ public class Banco {
         this.contas = new Conta[capacidadeContas];
     }
 
+    public void adicionarCliente(Cliente cliente) {
+        for (int i = 0; i < clientes.length; i++){
+            if (clientes[i] == null && cliente != null){
+                clientes[i] = cliente;
+                System.out.println("Cliente adicionado com sucesso");
+                break;
+            }
+        }
+    }
+
     public int getNumeroBanco(){
         return numeroBanco;
     }
