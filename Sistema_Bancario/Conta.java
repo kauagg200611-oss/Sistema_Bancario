@@ -2,13 +2,13 @@ package Sistema_Bancario;
 
 public class Conta {
     private String numeroConta;
-    private double saldo;
     private Cliente titular;
+    private double saldo;
 
-    public Conta(String numeroConta, double saldo, Cliente titular){
+    public Conta(String numeroConta, Cliente titular){
         this.numeroConta = numeroConta;
-        this.saldo = saldo;
         this.titular = titular;
+        this.saldo = 0.0;
     }
 
     public String getNumeroConta(){

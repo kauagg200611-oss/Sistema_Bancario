@@ -23,6 +23,22 @@ public class Banco {
         }
     }
 
+    public void adicionarConta(Conta conta, Cliente cliente){
+        if(conta == null || cliente == null){
+            System.out.println("Conta ou cliente inválido");
+            return;
+        }
+        for (int i = 0; i < contas.length; i++){
+            for (int j = 0; j < clientes.length; j++){
+                if (contas[i] == null && clientes[j] != null && clientes[j] == cliente){
+                    contas[i] = conta;
+                    System.out.println("Conta adicionada com sucesso");
+                    break;
+                }
+            }
+        }
+    }
+
     public int getNumeroBanco(){
         return numeroBanco;
     }
