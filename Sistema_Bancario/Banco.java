@@ -21,8 +21,6 @@ public class Banco {
         }
     }
 
-
-
     public void adicionarConta(Conta conta){
         Boolean titularEncontrado = false;
         if(conta == null){
@@ -32,6 +30,7 @@ public class Banco {
         for(int i = 0; i < clientes.length; i++){
             if(clientes[i] != null && clientes[i].equals(conta.getTitular())){
                 titularEncontrado = true;
+                System.out.println("Titular da conta encontrado");
                 break;
             } else {
                 continue;
@@ -49,6 +48,25 @@ public class Banco {
             }
         }
     }
+
+    public Conta procurarConta(String numeroConta){
+
+    if(numeroConta == null){
+        System.out.println("Número da conta inválido");
+        return null;
+    }
+
+    for(int i = 0; i < contas.length; i++){
+
+        if(contas[i] != null && contas[i].getNumeroConta().equals(numeroConta)){
+            return contas[i];
+        }
+    }
+
+    System.out.println("Conta não encontrada");
+    return null;
+}
+
 
     public int getNumeroBanco(){
         return numeroBanco;
