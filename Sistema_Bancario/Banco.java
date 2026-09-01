@@ -5,8 +5,6 @@ public class Banco {
     private Cliente[] clientes;
     private Conta[] contas;
 
-    /* 1 - O código deve verificar se ainda existe vetores vazios para q uma conta nova possa ocupar aqle lugar;
-    2 - Usar ArrayList */
     public Banco(int numeroBanco, int capacidadeClientes, int capacidadeContas) {
         this.numeroBanco = numeroBanco;
         this.clientes = new Cliente[capacidadeClientes];
@@ -23,19 +21,18 @@ public class Banco {
         }
     }
 
-    public void adicionarConta(Conta conta, Cliente cliente){
-        if(conta == null || cliente == null){
-            System.out.println("Conta ou cliente inválido");
+    public void adicionarConta(Conta conta){
+        if(conta == null){
+            System.out.println("Conta inválida");
             return;
         }
         for (int i = 0; i < contas.length; i++){
-            for (int j = 0; j < clientes.length; j++){
-                if (contas[i] == null && clientes[j] != null && clientes[j] == cliente){
-                    contas[i] = conta;
-                    System.out.println("Conta adicionada com sucesso");
-                    break;
-                }
+            if (contas[i] == null){
+                contas[i] = conta;
+                System.out.println("Conta adicionada com sucesso");
+                break;
             }
+        }
         }
     }
 
