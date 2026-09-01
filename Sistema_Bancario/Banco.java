@@ -49,24 +49,32 @@ public class Banco {
         }
     }
 
-    public Conta procurarConta(String numeroConta){
+    public void procurarConta(String numeroConta){
 
     if(numeroConta == null){
         System.out.println("Número da conta inválido");
-        return null;
     }
 
     for(int i = 0; i < contas.length; i++){
 
         if(contas[i] != null && contas[i].getNumeroConta().equals(numeroConta)){
-            return contas[i];
+            System.out.println("Conta encontrada: Número da conta: " + contas[i].getNumeroConta() + ", Titular: " + contas[i].getTitular().getNome() + ", Saldo: " + contas[i].getSaldo());
+            return;
         }
     }
-
-    System.out.println("Conta não encontrada");
-    return null;
 }
 
+    public void listarContas(){
+         System.out.println("Contas do banco " + numeroBanco + ":");
+        for(int i = 0; i < contas.length; i++){
+            if(contas[i] != null){
+                System.out.println("Número da conta: " + contas[i].getNumeroConta() + ", Titular: " + contas[i].getTitular().getNome() + ", Saldo: " + contas[i].getSaldo());
+            }else{
+                System.out.println("Nenhuma conta cadastrada.");
+            }
+        }
+    }
+    
 
     public int getNumeroBanco(){
         return numeroBanco;
@@ -78,5 +86,6 @@ public class Banco {
 
     public Conta[] getContas() {
         return contas;
+    
     }
 }
