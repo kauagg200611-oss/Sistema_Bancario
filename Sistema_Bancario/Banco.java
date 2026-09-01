@@ -21,9 +21,24 @@ public class Banco {
         }
     }
 
+
+
     public void adicionarConta(Conta conta){
+        Boolean titularEncontrado = false;
         if(conta == null){
             System.out.println("Conta inválida");
+            return;
+        }
+        for(int i = 0; i < clientes.length; i++){
+            if(clientes[i] != null && clientes[i].equals(conta.getTitular())){
+                titularEncontrado = true;
+                break;
+            } else {
+                continue;
+            }
+        }
+        if(!titularEncontrado){
+            System.out.println("Titular da conta não encontrado");
             return;
         }
         for (int i = 0; i < contas.length; i++){
@@ -32,7 +47,6 @@ public class Banco {
                 System.out.println("Conta adicionada com sucesso");
                 break;
             }
-        }
         }
     }
 
