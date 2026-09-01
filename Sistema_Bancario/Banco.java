@@ -65,15 +65,18 @@ public class Banco {
 }
 
     public void listarContas(){
-         System.out.println("Contas do banco " + numeroBanco + ":");
+        System.out.println("Contas do banco " + numeroBanco + ":");
+        boolean contasExistem = false;
         for(int i = 0; i < contas.length; i++){
             if(contas[i] != null){
                 System.out.println("Número da conta: " + contas[i].getNumeroConta() + ", Titular: " + contas[i].getTitular().getNome() + ", Saldo: " + contas[i].getSaldo());
-            }else{
-                System.out.println("Nenhuma conta cadastrada.");
+                contasExistem = true;
             }
         }
-    }
+        if(!contasExistem){
+            System.out.println("Nenhuma conta cadastrada.");
+            }
+        }
     
 
     public int getNumeroBanco(){
