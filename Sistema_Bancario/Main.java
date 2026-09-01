@@ -27,8 +27,7 @@ public class Main {
         System.out.println("saldo da conta 1: " + conta1.getSaldo());
         System.out.println("saldo da conta 2: " + conta2.getSaldo());
 
-        conta1.transferir(300, conta2);
-        System.out.println("saldo da conta 1 após transferência: " + conta1.getSaldo());
-        System.out.println("saldo da conta 2 após transferência: " + conta2.getSaldo());
-    }
+        conta1.transferir(2000, conta2);
+        System.out.println("saldo da conta 1 após tentativa de transferência: " + conta1.getSaldo());
+        System.out.println("saldo da conta 2 após tentativa de transferência: " + conta2.getSaldo());    }
 }
