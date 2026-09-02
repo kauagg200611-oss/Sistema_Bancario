@@ -58,7 +58,7 @@ public class Banco {
     for(int i = 0; i < contas.length; i++){
 
         if(contas[i] != null && contas[i].getNumeroConta().equals(numeroConta)){
-            System.out.println("Conta encontrada: Número da conta: " + contas[i].getNumeroConta() + ", Titular: " + contas[i].getTitular().getNome() + ", Saldo: " + contas[i].getSaldo());
+            System.out.println("Conta encontrada: "+ numeroConta + " contas[i].getNumeroConta() " + ", Titular: " + contas[i].getTitular().getNome() + ", Saldo: " + contas[i].getSaldo());
             return;
         }
     }
