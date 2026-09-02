@@ -27,6 +27,13 @@ public class Banco {
             System.out.println("Conta inválida");
             return;
         }
+
+        for(int i= 0; i< contas.length; i++){
+            if(contas[i] != null && contas[i].getNumeroConta().equals(conta.getNumeroConta())){
+                System.out.println("Conta já existe");
+                return;
+            }
+        }
         for(int i = 0; i < clientes.length; i++){
             if(clientes[i] != null && clientes[i].equals(conta.getTitular())){
                 titularEncontrado = true;
