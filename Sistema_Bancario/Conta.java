@@ -45,4 +45,9 @@ public class Conta {
             System.out.println("Saldo insuficiente para transferência");
     }
   }
+
+    //Sacar com permissão de limite de crédito, usado na ContaCorrente
+    protected void sacarComLimite(double valor){
+        saldo -= valor;
+    }
 }
