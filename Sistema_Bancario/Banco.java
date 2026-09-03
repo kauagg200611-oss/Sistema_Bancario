@@ -11,15 +11,33 @@ public class Banco {
         this.contas = new Conta[capacidadeContas];
     }
 
-    public void adicionarCliente(Cliente cliente) {
-        for (int i = 0; i < clientes.length; i++){
-            if (clientes[i] == null && cliente != null){
-                clientes[i] = cliente;
-                System.out.println("Cliente adicionado com sucesso");
-                break;
-            }
+    public void adicionarCliente(Cliente cliente){
+
+    // Verifica se o cliente é válido
+    if(cliente == null){
+        System.out.println("Cliente inválido");
+        return;
+    }
+
+    // Verifica se o CPF já está cadastrado
+    for(int i = 0; i < clientes.length; i++){
+        if(clientes[i] != null && clientes[i].getCpf().equals(cliente.getCpf())){
+            System.out.println("Cliente já cadastrado");
+            return;
         }
     }
+
+    // Procura espaço para adicionar o cliente
+    for(int i = 0; i < clientes.length; i++){
+        if(clientes[i] == null){
+            clientes[i] = cliente;
+            System.out.println("Cliente adicionado com sucesso");
+            return;
+        }
+    }
+    // Se chegou aqui, não existe espaço
+    System.out.println("Não há espaço para adicionar o cliente");
+}
 
     public void adicionarConta(Conta conta){
     if(conta == null){
@@ -91,6 +109,42 @@ public class Banco {
             }
         }
     
+    public void removerConta(String numeroConta){
+        if(numeroConta == null){
+            System.out.println("Número da conta inválido");
+            return;
+        }
+        for(int i = 0; i < contas.length; i++){
+            if(contas[i] != null && contas[i].getNumeroConta().equals(numeroConta)){
+                contas[i] = null;
+                System.out.println("Conta removida com sucesso");
+                return;
+            }
+        }
+        System.out.println("Conta não encontrada");
+    }
+
+    public void removerCliente(String cpf){
+        if(cpf == null){
+            System.out.println("CPF inválido");
+            return;
+        }
+        for(int i = 0; i < clientes.length; i++){
+            if(clientes[i] != null && clientes[i].getCpf().equals(cpf)){
+                // Antes de remover o cliente, verifica se ele possui contas
+                for(int j = 0; j < contas.length; j++){
+                    if(contas[j] != null && contas[j].getTitular().equals(clientes[i])){
+                        System.out.println("Não é possível remover o cliente, ele possui contas cadastradas");
+                        return;
+                    }
+                }
+                clientes[i] = null;
+                System.out.println("Cliente removido com sucesso");
+                return;
+            }
+        }
+        System.out.println("Cliente não encontrado");
+    }
 
     public int getNumeroBanco(){
         return numeroBanco;
