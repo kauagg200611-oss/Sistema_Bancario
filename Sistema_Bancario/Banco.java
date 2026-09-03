@@ -22,53 +22,59 @@ public class Banco {
     }
 
     public void adicionarConta(Conta conta){
-        Boolean titularEncontrado = false;
-        if(conta == null){
-            System.out.println("Conta inválida");
-            return;
-        }
-
-        for(int i= 0; i< contas.length; i++){
-            if(contas[i] != null && contas[i].getNumeroConta().equals(conta.getNumeroConta())){
-                System.out.println("Conta já existe");
-                return;
-            }
-        }
-        for(int i = 0; i < clientes.length; i++){
-            if(clientes[i] != null && clientes[i].equals(conta.getTitular())){
-                titularEncontrado = true;
-                System.out.println("Titular da conta encontrado");
-                break;
-            } else {
-                continue;
-            }
-        }
-        if(!titularEncontrado){
-            System.out.println("Titular da conta não encontrado");
-            return;
-        }
-        for (int i = 0; i < contas.length; i++){
-            if (contas[i] == null){
-                contas[i] = conta;
-                System.out.println("Conta adicionada com sucesso");
-                break;
-            }
-        }
+    if(conta == null){
+        System.out.println("Conta inválida");
+        return;
     }
 
-    public void procurarConta(String numeroConta){
+    // Verifica se o número da conta já existe
+    for(int i = 0; i < contas.length; i++){
+        if(contas[i] != null && contas[i].getNumeroConta().equals(conta.getNumeroConta())){
+            System.out.println("Conta já existe");
+            return;
+        }
+    }
+    // Verifica se o titular está cadastrado
+    boolean titularEncontrado = false;
 
+    for(int i = 0; i < clientes.length; i++){
+        if(clientes[i] != null && clientes[i].equals(conta.getTitular())){
+            titularEncontrado = true;
+            System.out.println("Titular da conta encontrado");
+            break;
+        }
+    }
+    if(!titularEncontrado){
+        System.out.println("Titular da conta não encontrado");
+        return;
+    }
+    // Procura espaço para adicionar a conta
+    for(int i = 0; i < contas.length; i++){
+        if(contas[i] == null){
+            contas[i] = conta;
+            System.out.println("Conta adicionada com sucesso");
+            return;
+        }
+    }
+    // Se chegou aqui, não existe espaço
+    System.out.println("Não há espaço para adicionar a conta");
+}
+
+    public void procurarConta(String numeroConta){
     if(numeroConta == null){
         System.out.println("Número da conta inválido");
+        return;
     }
 
     for(int i = 0; i < contas.length; i++){
-
         if(contas[i] != null && contas[i].getNumeroConta().equals(numeroConta)){
-            System.out.println("Conta encontrada: "+ numeroConta + " contas[i].getNumeroConta() " + ", Titular: " + contas[i].getTitular().getNome() + ", Saldo: " + contas[i].getSaldo());
+            System.out.println("Conta encontrada: " + contas[i].getNumeroConta()
+                    + ", Titular: " + contas[i].getTitular().getNome()
+                    + ", Saldo: " + contas[i].getSaldo());
             return;
         }
     }
+    System.out.println("Conta não encontrada");
 }
 
     public void listarContas(){
