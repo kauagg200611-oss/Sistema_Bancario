@@ -146,6 +146,33 @@ public class Banco {
         System.out.println("Cliente não encontrado");
     }
 
+    public void procurarCliente(String cpf){
+        if(cpf == null){
+            System.out.println("CPF inválido");
+            return;
+        }
+        for(int i = 0; i < clientes.length; i++){
+            if(clientes[i] != null && clientes[i].getCpf().equals(cpf)){
+                System.out.println("Cliente encontrado: " + clientes[i].getNome() + ", CPF: " + clientes[i].getCpf() + ", Idade: " + clientes[i].getIdade());
+                return;
+            }
+        }
+    }
+
+    public void listarClientes(){
+        System.out.println("Clientes do banco " + numeroBanco + ":");
+        boolean clientesExistem = false;
+        for(int i = 0; i < clientes.length; i++){
+            if(clientes[i] != null){
+                System.out.println("Nome: " + clientes[i].getNome() + ", CPF: " + clientes[i].getCpf() + ", Idade: " + clientes[i].getIdade());
+                clientesExistem = true;
+            }
+        }
+        if(!clientesExistem){
+            System.out.println("Nenhum cliente cadastrado.");
+            }
+    }
+
     public int getNumeroBanco(){
         return numeroBanco;
     }
