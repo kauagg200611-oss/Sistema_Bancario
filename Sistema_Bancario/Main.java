@@ -3,7 +3,7 @@ package Sistema_Bancario;
 public class Main {
     public static void main(String[] args) {
         Banco banco = new Banco(1, 10, 10);
-        Banco banco2 = new Banco(2, 3 , 2);
+        Banco banco2 = new Banco(2, 3 , 3);
 
         Cliente cliente1 = new Cliente("Paulo", "12345678901", 37);
         Cliente cliente2 = new Cliente("Maria", "09876543210", 28);
@@ -23,6 +23,10 @@ public class Main {
         Conta conta2 = new Conta("002", cliente2);
         Conta conta3 = new Conta("003", cliente3);
         Conta conta4 = new Conta("004", cliente4);
+
+        banco2.adicionarConta(conta1);
+        banco2.adicionarConta(conta2);
+        banco2.adicionarConta(conta3);
 
         banco.adicionarConta(conta1); 
         banco.adicionarConta(conta2);
