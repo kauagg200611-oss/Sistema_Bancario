@@ -15,8 +15,8 @@ public class ContaCorrente extends Conta {
             System.out.println("Valor inválido ou excede o limite de crédito\n");
             return false;
         }
-        super.sacarComLimite(valor);
-        System.out.println("Saque realizado com sucesso. Novo saldo: " + getSaldo() + "\n");
-        return true;
+            super.sacarComLimite(valor);
+            System.out.println("Saque realizado com sucesso. Novo saldo: " + getSaldo() + "\n");
+            return true;
         }
     }
