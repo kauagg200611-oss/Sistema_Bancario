@@ -42,12 +42,13 @@ public class Conta {
         if(sacar(valor)){
             destino.depositar(valor);
         }else if(valor > saldo){
-            System.out.println("Saldo insuficiente para transferência");
+            System.out.println("Saldo insuficiente para transferência\n");
     }
   }
 
     //Sacar com permissão de limite de crédito, usado na ContaCorrente
     protected void sacarComLimite(double valor){
         saldo -= valor;
+        System.out.println("Saque realizado com sucesso. Novo saldo: " + saldo + "\n");
     }
 }
