@@ -29,7 +29,7 @@ public class Main {
 
         //Criando uma conta poupanca para o cliente, com rendimento de 5% ao mês.
         ContaPoupanca contaPoupanca1 = new ContaPoupanca("001", cliente1, 0.05);
-        contaPoupanca1.depositar(150.0);
+        contaPoupanca1.depositar(555.0);
         contaPoupanca1.aplicarRendimento();
 
     }   
