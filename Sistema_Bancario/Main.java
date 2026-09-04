@@ -27,7 +27,7 @@ public class Main {
         //Tentando sacar 1300.0 da conta corrente, através do método sacar da classe ContaCorrente, que sobrescreve o método sacar da classe Conta.
         contaCorrente1.sacar(1301.0);
 
-        //Tentando criar uma conta poupanca para o cliente, com rendimento de 5% ao mês.
+        //Criando uma conta poupanca para o cliente, com rendimento de 5% ao mês.
         ContaPoupanca contaPoupanca1 = new ContaPoupanca("001", cliente1, 0.05);
         contaPoupanca1.depositar(150.0);
         contaPoupanca1.aplicarRendimento();
