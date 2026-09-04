@@ -25,7 +25,7 @@ public class Main {
         contaCorrente1.depositar(1000.0);
 
         //Tentando sacar 1300.0 da conta corrente, através do método sacar da classe ContaCorrente, que sobrescreve o método sacar da classe Conta.
-        contaCorrente1.sacar(1300.0);
+        contaCorrente1.sacar(689.0);
 
     }   
 }
