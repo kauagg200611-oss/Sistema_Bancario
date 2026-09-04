@@ -39,7 +39,7 @@ public class Conta {
     }
 
     public void transferir(double valor, Conta destino){
-        if(sacar(valor)){
+        if(sacar(valor) == true){
             destino.depositar(valor);
         }else if(valor > saldo){
             System.out.println("Saldo insuficiente para transferência\n");
